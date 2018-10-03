@@ -13,7 +13,7 @@ PyYAML>=3.11
 ```
 Details: https://github.com/Neo23x0/sigma/tree/master/tools
 ## To install Sigma UI plugin for your Kibana ###
-#### 1. Copy the file sigma-ui-xxxxx.zip to Kibana server and run the command:
+##### 1. Copy the file sigma-ui-xxxxx.zip to Kibana server and run the command:
 ```sh
 /usr/share/kibana/bin/./kibana-plugin install file:///PATH_TO_FILE/sigma-ui-xxxxx.zip
 ```
@@ -23,13 +23,11 @@ bundles. Restart Kibana to apply the changes
 plugin [sigmaui]. Expected [6.2.2]; found [6.2.1]“, please open zip archive and modify file
 “. /kibana/socprime_sigma_ui/package.json”: put version of your Kibana to field "version"
 ​
-### 2. **Restart Kibana** to apply the changes.
-​
+#### 2. **Restart Kibana** to apply the changes.
 >In case after restart Kibana you don’t see any changes, go to /usr/share/kibana/optimize.
 Delete all files in the folder ‘optimize’ including subfolders. And restart Kibana.This will make
 Kibana to refresh it’s cache.
-​
-### 3. Sigma UI plugin is using indices:
+#### 3. Sigma UI plugin is using indices:
   * sigma_doc” - for sigma documents;
 ​
 Create index templates for these index from file **[index_template_sigme_doc.txt]**
@@ -42,9 +40,8 @@ Copy to server which has access to Elasticsearch **database file sigma_import.zi
 python /PATH_TO_FILE/import_es_index.py
 ```
 Indices will be created and filled with sigma rules.
-### 4. Now you can use Sigma UI plugin.
+#### 4. Now you can use Sigma UI plugin.
 ### TO-Do
-​
 - [X] ...
 - [ ] ...
 ​
