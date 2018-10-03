@@ -42,7 +42,11 @@ python /PATH_TO_FILE/import_es_index.py
 Indices will be created and filled with sigma rules.
 #### 4. Now you can use Sigma UI plugin.
 ### TO-Do
-- [X] ...
-- [ ] ...
-​
+- [ ] Refactor the editor code as currently it is one huge file
+- [ ] SOC Prime TDM integration to pull new Sigmas via API
+- [ ] Github integration to pull new Sigmas via API
+- [ ] Add auto-save feature and draft saves
+- [ ] Update tooltips for automatic spell checking
+- [ ] Populate dictionaries with more log sources
+- [ ] Optimize the app backend for better performance
 
