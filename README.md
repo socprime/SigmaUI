@@ -14,7 +14,6 @@ PyYAML>=3.11
 Details: https://github.com/Neo23x0/sigma/tree/master/tools
 ## To install Sigma UI plugin for your Kibana ###
 #### 1. Copy the file sigma-ui-xxxxx.zip to Kibana server and run the command:
-​
 ```sh
 /usr/share/kibana/bin/./kibana-plugin install file:///PATH_TO_FILE/sigma-ui-xxxxx.zip
 ```
