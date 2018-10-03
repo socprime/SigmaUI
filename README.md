@@ -2,6 +2,7 @@
 ​
 In the last months observed a growth of online platforms that allow webmasters to install coin miners into their websites as an alternative means of monetization. For a long time now, cybercriminals have taken advantage of cryptocurrency mining in order to make a profit. However, they generally use malware or potentially unwanted applications they install on the victim’s machine. In this particular case, the mining is performed directly within the browser when the user browses to certain websites. Thus, there is no need to infect the victim’s machine or to exploit vulnerabilities. All that is needed is a browser with JavaScript activated, which is the default state of most browsers. Even if it can be considered as an alternative to traditional ads, this behavior is unwanted when there is no user consent. The New Jersey Division of Consumer Affairs considered that mining bitcoins on a user’s machine without consent is equivalent to gaining access to the computer. Thus, the developers of such services should advertise it clearly before starting mining, which is clearly not the case in a distribution scheme using malvertising. Web Mining Detector basic package is a set of correlation rules and dashboard that enables detection of malicious communications with online JavaScript miners distribution platforms.
 ​
+
 ![alt text](resources/images/sigmaui.png "Sigma-UI")
 ​
 Sigma UI isusing **sigmac** script to convert sigma to different SIEM languages. It requires
@@ -45,7 +46,7 @@ python /PATH_TO_FILE/import_es_index.py
 ```
 Indices will be created and filled with sigma rules.
 ### 4. Now you can use Sigma UI plugin.
-# TO-Do
+###TO-Do
 ​
 - [X] ...
 - [ ] ...
