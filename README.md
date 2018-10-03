@@ -1,42 +1,3 @@
-rs
-
-
-
-
-
- 
-Message List
-Loading history...
-
-Artur Golovko [3:22 PM]
-kibana/socprime_sigma_ui/package.json
-
-Roman Starenky [3:26 PM]
-PDF 
-Sigma UI for Kibana Installation Guide (3).pdf
-497 kB PDF
-
-Roman Starenky [8:20 AM]
-Доброе утро. Я попал в большую пробку. Опоздаю минут на 25-30 ( прошу прощения
-
-Artur Golovko [8:21 AM]
-Привет. А попал потому что выехал позже ) Ок.
-
-Artur Golovko [11:57 AM]
-https://github.com/Cyb3rWard0g/HELK
-GitHub
-Cyb3rWard0g/HELK
-The Hunting ELK. Contribute to Cyb3rWard0g/HELK development by creating an account on GitHub.
-
-Artur Golovko [12:21 PM]
-Pasted image at 2018-10-03, 12:21 PM 
-
-
-Roman Starenky [12:55 PM]
-Binary 
-resources.rar
-184 kB Binary
-README.md 
 # Sigma-UI
 ​
 In the last months observed a growth of online platforms that allow webmasters to install coin miners into their websites as an alternative means of monetization. For a long time now, cybercriminals have taken advantage of cryptocurrency mining in order to make a profit. However, they generally use malware or potentially unwanted applications they install on the victim’s machine. In this particular case, the mining is performed directly within the browser when the user browses to certain websites. Thus, there is no need to infect the victim’s machine or to exploit vulnerabilities. All that is needed is a browser with JavaScript activated, which is the default state of most browsers. Even if it can be considered as an alternative to traditional ads, this behavior is unwanted when there is no user consent. The New Jersey Division of Consumer Affairs considered that mining bitcoins on a user’s machine without consent is equivalent to gaining access to the computer. Thus, the developers of such services should advertise it clearly before starting mining, which is clearly not the case in a distribution scheme using malvertising. Web Mining Detector basic package is a set of correlation rules and dashboard that enables detection of malicious communications with online JavaScript miners distribution platforms.
@@ -89,8 +50,4 @@ Indices will be created and filled with sigma rules.
 - [X] ...
 - [ ] ...
 ​
-Collapse 
 
-Message Input
-
-Message @Roman Starenky 
