@@ -4,6 +4,7 @@ In the last months observed a growth of online platforms that allow webmasters t
 ​
 
 ![alt text](resources/images/sigmaui.png "Sigma-UI")
+
 ​
 Sigma UI isusing **sigmac** script to convert sigma to different SIEM languages. It requires
 **python3** with libraries:
@@ -12,7 +13,6 @@ PyYAML>=3.11
 ```
 Details: https://github.com/Neo23x0/sigma/tree/master/tools
 ## To install Sigma UI plugin for your Kibana ###
-​
 ​
 #### 1. Copy the file sigma-ui-xxxxx.zip to Kibana server and run the command:
 ​
@@ -24,7 +24,6 @@ bundles. Restart Kibana to apply the changes
 > If you get error: “Plugin installation was unsuccessful due to error "Incorrect Kibana version in
 plugin [sigmaui]. Expected [6.2.2]; found [6.2.1]“, please open zip archive and modify file
 “. /kibana/socprime_sigma_ui/package.json”: put version of your Kibana to field "version"
-​
 ​
 ### 2. **Restart Kibana** to apply the changes.
 ​
@@ -46,7 +45,7 @@ python /PATH_TO_FILE/import_es_index.py
 ```
 Indices will be created and filled with sigma rules.
 ### 4. Now you can use Sigma UI plugin.
-###TO-Do
+### TO-Do
 ​
 - [X] ...
 - [ ] ...
