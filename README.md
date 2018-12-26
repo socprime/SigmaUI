@@ -6,7 +6,7 @@ SIGMA UI is a free open-source application based on the Elastic stack and Sigma 
 ![alt text](resources/images/sigmaui.png "Sigma-UI")
 
 ​
-Sigma UI requires pyhon2.7 and using **sigmac** script to convert sigma to different SIEM languages. It requires
+Sigma UI requires **pyhon2.7** and using **sigmac** script to convert sigma to different SIEM languages. It requires
 **python3** with libraries:
 ```sh
 PyYAML>=3.11
