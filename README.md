@@ -20,26 +20,31 @@ Details: https://github.com/Neo23x0/sigma/tree/master/tools
 Wait until the installation finishes, it may take few minutes to optimize and cache browser
 bundles. Restart Kibana to apply the changes
 > If you get error: “Plugin installation was unsuccessful due to error "Incorrect Kibana version in
-plugin [sigmaui]. Expected [6.2.2]; found [6.2.1]“, please open zip archive and modify file
-“. /kibana/socprime_sigma_ui/package.json”: put version of your Kibana to field "version"
+plugin [sigmaui]. Expected [6.6.0]; found [6.6.1]“, please open zip archive and modify file
+“. /kibana/socprime_sigma_ui/package.json”: put version of your Kibana to field "kibana.version"
 ​
 #### 2. **Restart Kibana** to apply the changes.
 >In case after restart Kibana you don’t see any changes, go to /usr/share/kibana/optimize.
 Delete all files in the folder ‘optimize’ including subfolders. And restart Kibana.This will make
 Kibana to refresh it’s cache.
 #### 3. Sigma UI plugin is using indices:
-  * sigma_doc” - for sigma documents;
+  * "sigma_doc" - for sigma documents;
 ​
-Create index templates for these index from file **[index_template_sigme_doc.txt]**
+Create index templates for these index from file **[index_template_sigma_doc.txt]**
 To fill sigma docs and to index:
-Copy to server which has access to Elasticsearch **database file sigma_import.zip**
-- Unzip archive **sigma_import.zip**
+Enter to folder **ELK_import_export**
 - Modify script **es_config.py**, put there Elasticsearch hostname, user and password.
 - Run command
 ```sh
-python /PATH_TO_FILE/import_es_index.py
+python /PATH_TO_FILE/ELK_import_export/import_es_index.py
 ```
 Indices will be created and filled with sigma rules.
+
+>You should have the elasticsearch module, for python 2.7 install it using the command:
+>```sh
+>pip install elasticsearch
+>```
+
 #### 4. Now you can use Sigma UI plugin.
 ## TO-Do
 - [ ] Refactor the editor code as currently it is one huge file

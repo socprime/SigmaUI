@@ -21,9 +21,9 @@ class ES_DB_Connector(object):
             port=ES_port,
 
 ## uncomment if X-pack installed           
-            use_ssl=ES_use_ssl,
-            verify_certs=ES_verify_certs,
-            ca_certs=ES_ca_certs                 
+#            use_ssl=ES_use_ssl,
+#            verify_certs=ES_verify_certs,
+#            ca_certs=ES_ca_certs
         )
 
     def get_all_doc_list(self, index):

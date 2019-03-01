@@ -1,4 +1,4 @@
-PUT _template/sigma_doc
+POST _template/sigma_doc
 {
   "order": 100,
   "index_patterns": [
@@ -56,7 +56,7 @@ PUT _template/sigma_doc
           "type": "integer"
         },
         "git_filepath": {
-          "type": "text"
+          "type": "keyword"
         },
         "hash": {
           "type": "keyword"
@@ -75,7 +75,11 @@ PUT _template/sigma_doc
         },
         "sigma_text": {
           "type": "text",
-          "analyzer": "string_analyzer"
+          "analyzer": "string_analyzer",
+          "fielddata": true
+        },
+        "sigma_text_keyword": {
+          "type": "keyword"
         },
         "status": {
           "type": "keyword"
