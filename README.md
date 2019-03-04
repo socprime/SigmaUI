@@ -30,7 +30,7 @@ Kibana to refresh it’s cache.
 #### 3. Sigma UI plugin is using indices:
   * "sigma_doc" - for sigma documents;
 ​
-Create index templates for these index from file **[index_template_sigma_doc.txt]**
+Create index template for these index from file **[index_template_sigma_doc.txt]**
 To fill sigma docs and to index:
 Enter to folder **ELK_import_export**
 - Modify script **es_config.py**, put there Elasticsearch hostname, user and password.
