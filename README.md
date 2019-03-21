@@ -54,4 +54,5 @@ Indices will be created and filled with sigma rules.
 - [ ] Update tooltips for automatic spell checking
 - [ ] Populate dictionaries with more log sources
 - [ ] Optimize the app backend for better performance
+- [ ] move all code from python 2.7 to python 3
 
