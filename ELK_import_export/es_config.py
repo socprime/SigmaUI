@@ -17,4 +17,4 @@ ES_scheme = "http" # "http" or "https"
 ### provide a path to CA certs on disk
 #ES_ca_certs='/path/to/certs/cas.crt'
 
-SIGMA_DOC_INDEX_NAME = "sigma_doc"
+SIGMA_DOC_INDEX_NAME = "sui_sigma_doc"

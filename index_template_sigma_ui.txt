@@ -1,0 +1,130 @@
+POST _template/sui_config
+{
+  "order": 0,
+  "index_patterns": [
+    "sui_config*"
+  ],
+  "settings": {
+    "index": {
+      "analysis": {
+        "normalizer": {
+          "lowercase_normalizer": {
+            "filter": [
+              "lowercase"
+            ],
+            "type": "custom"
+          }
+        }
+      },
+      "number_of_shards": "1",
+      "auto_expand_replicas": "0-all"
+    }
+  },
+  "mappings": {
+    "properties": {
+      "created": {
+        "type": "date"
+      },
+      "name": {
+        "normalizer": "lowercase_normalizer",
+        "type": "keyword"
+      },
+      "updated": {
+        "type": "date"
+      },
+      "value": {
+        "type": "text"
+      }
+    }
+  },
+  "aliases": {}
+}
+
+POST _template/sui_sigma_doc
+{
+  "order": 100,
+  "index_patterns": [
+    "sui_sigma_doc*"
+  ],
+  "settings": {
+    "index": {
+      "analysis": {
+        "analyzer": {
+          "string_analyzer": {
+            "filter": [
+              "lowercase"
+            ],
+            "tokenizer": "standard"
+          }
+        }
+      },
+      "number_of_shards": "1",
+      "number_of_replicas": "0"
+    }
+  },
+  "mappings": {
+    "_source": {
+      "enabled": true
+    },
+    "properties": {
+      "sigma_text": {
+        "analyzer": "string_analyzer",
+        "type": "text"
+      },
+      "level": {
+        "type": "keyword"
+      },
+      "author": {
+        "analyzer": "string_analyzer",
+        "type": "text"
+      },
+      "git_filepath": {
+        "type": "text"
+      },
+      "mitre_attack": {
+        "type": "object"
+      },
+      "title": {
+        "analyzer": "string_analyzer",
+        "type": "text"
+      },
+      "permission_id": {
+        "type": "integer"
+      },
+      "is_verified": {
+        "type": "keyword"
+      },
+      "user_id": {
+        "type": "keyword"
+      },
+      "downloads": {
+        "type": "integer"
+      },
+      "author_keyword": {
+        "type": "keyword"
+      },
+      "category": {
+        "type": "integer"
+      },
+      "updated": {
+        "type": "date"
+      },
+      "views": {
+        "type": "integer"
+      },
+      "hash": {
+        "type": "keyword"
+      },
+      "released": {
+        "type": "date"
+      },
+      "title_keyword": {
+        "type": "keyword"
+      },
+      "status": {
+        "type": "keyword"
+      }
+    }
+  },
+  "aliases": {}
+}
