@@ -6,38 +6,48 @@ SIGMA UI is a free open-source application based on the Elastic stack and Sigma 
 ![alt text](resources/images/sigmaui.png "Sigma-UI")
 
 ​
-Sigma UI requires **pyhon2.7** and using **sigmac** script to convert sigma to different SIEM languages. It requires
-**python3** with libraries:
+Sigma UI requires **pyhon2.7** and using **sigmac** script to convert sigma to different SIEM languages. 
+It requires **python3.6** with libraries:
 ```sh
 PyYAML>=3.11
 ```
 Details: https://github.com/Neo23x0/sigma/tree/master/tools
-## To install Sigma UI plugin for your Kibana ###
-##### 1. Copy the file sigma-ui-xxxxx.zip to Kibana server and run the command:
+## To install the Sigma UI plugin for your Kibana: ###
+
+##### 1. Copy the file sigma-ui-xxxxx.zip to the Kibana server and run the command:
 ```sh
 /usr/share/kibana/bin/./kibana-plugin install file:///PATH_TO_FILE/sigma-ui-xxxxx.zip
 ```
-Wait until the installation finishes, it may take few minutes to optimize and cache browser
-bundles. Restart Kibana to apply the changes
-> If you get error: “Plugin installation was unsuccessful due to error "Incorrect Kibana version in
-plugin [sigmaui]. Expected [6.6.0]; found [6.6.1]“, please open zip archive and modify file
-“. /kibana/socprime_sigma_ui/package.json”: put version of your Kibana to field "kibana.version"
-​
-#### 2. **Restart Kibana** to apply the changes.
->In case after restart Kibana you don’t see any changes, go to /usr/share/kibana/optimize.
-Delete all files in the folder ‘optimize’ including subfolders. And restart Kibana.This will make
-Kibana to refresh it’s cache.
-#### 3. Sigma UI plugin is using indices:
-  * "sigma_doc" - for sigma documents;
-​
-Create index template for these index from file **[index_template_sigma_doc.txt]**
+
+Wait until the installation finishes, it may take a few minutes to optimize and cache browser bundles. Restart Kibana using the systemctl restart kibana command to apply the changes.
+> If you get the error: "Plugin installation was unsuccessful due to error "Incorrect Kibana version in plugin [socprime_sigma_ui]. Expected [7.6.0]; found [6.6.1]", please open the zip archive and modify file ./kibana/socprime_sigma_ui/package.json": put the version of your Kibana to the field "kibana.version".
+
+##### 2. Restart Kibana using the systemctl restart kibana command to apply the changes.
+> In case if after restarting Kibana you don’t see any changes, go to /usr/share/kibana/optimize. Delete all files in the ‘optimize’ folder, including subfolders. Then restart Kibana. This will make Kibana refresh its cache.
+
+##### 3. Sigma UI plugin is using indices: 
+"sui_config" - to store App config;
+
+"sui_sigma_doc" - for sigma documents;
+
+Create index templates for these index from file **index_template_sigma_ui.txt**
+
 To fill sigma docs and to index:
-Enter to folder **ELK_import_export**
-- Modify script **es_config.py**, put there Elasticsearch hostname, user and password.
-- Run command
+
+Copy to the server which has access to Elasticsearch database folder **ELK_import_export**. 
+
+Modify script es_config.py, specify your credentials:
+﻿
+* ES_host = ['localhost']
+* ES_http_auth = None #('login', 'password')
+* ES_port = 9200
+* ES_scheme = "http" # "http" or "https"
+
+Run command:
 ```sh
-python /PATH_TO_FILE/ELK_import_export/import_es_index.py
+python /PATH_TO_FILE/import_es_index.py
 ```
+
 Indices will be created and filled with sigma rules.
 
 >You should have the elasticsearch module, for python 2.7 install it using the command:
@@ -45,14 +55,44 @@ Indices will be created and filled with sigma rules.
 >pip install elasticsearch
 >```
 
-#### 4. Now you can use Sigma UI plugin.
+##### 4. You can receive Sigma rules from TDM using the TDM API:
+Extract the contents of the archive **script_tdm_api.zip** to your folder for scripts, for example ```/opt/scripts/```.
+First of all, you should install script dependencies in the **script_tdm_api** folder using the following command:
+```sh
+pip install -Ur requirements.txt
+```
+
+Specify your settings for script work in the following file: 
+```kibana/plugins/socprime_sigma_ui/config/common.json``` 
+```json
+{
+ "debug": true,
+ "max_upload_period_in_month": 2,
+ "python_path": "/usr/bin/python3.6",
+ "tdm_api_integration_tool_path": "/opt/scripts/script_tdm_api/tdm_api_for_sigma_ui.py",
+ "tpm_sigma_folder_path": "/opt/scripts/script_tdm_api/sigmas"
+}
+```
+
+This script gets new Sigma rules published on TDM, by API. The script uploads Sigma rules with the latest updated date in **sui_sigma_doc**; or if the time range is bigger than is specified in **max_upload_period_in_month**, then it uses the **max_upload_period_in_month** value.
+
+The script gets all available Sigma rules for your Company registered in TDM. 
+
+The script uses a temporary directory for store data received from TDM API. The path can be specified in **tpm_sigma_folder_path**. The received data are saved in the file in '*.json' format.Other settings meaning:
+
+```"debug": true``` - turn on sending the bugs/mistakes from backend;
+```"python_path": "/usr/bin/python3.6"``` - path to the python script;
+```"tdm_api_integration_tool_path": "/opt/scripts/script_tdm_api/tdm_api_integration_tool.py"``` - path to the script for updating the TDM Sigma rules using TDM API;
+
+##### 5. Now you can use the Sigma UI plugin.
+
 ## TO-Do
 - [ ] Refactor the editor code as currently it is one huge file
-- [ ] SOC Prime TDM integration to pull new Sigmas via API
+- [X] SOC Prime TDM integration to pull new Sigmas via API
 - [ ] Github integration to pull new Sigmas via API
 - [ ] Add auto-save feature and draft saves
 - [ ] Update tooltips for automatic spell checking
-- [ ] Populate dictionaries with more log sources
+- [X] Populate dictionaries with more log sources
 - [ ] Optimize the app backend for better performance
 - [ ] move all code from python 2.7 to python 3
 
